@@ -1,281 +1,164 @@
 
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nightingale's Hub | Learning Centre</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #18324f;
-}
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="logo">✚</div>
+      <div>
+        <h2>Nightingale's Hub</h2>
+        <small>Learning with Ease.</small>
+      </div>
+    </div>
 
-.app {
-  display: flex;
-  min-height: 100vh;
-}
+    <p class="nav-label">LEARNING WORKSPACE</p>
 
-.sidebar {
-  width: 255px;
-  background: #12345a;
-  color: white;
-  padding: 25px 18px;
-  display: flex;
-  flex-direction: column;
-}
+    <nav>
+      <button class="nav active" data-page="dashboard">⌂ Overview</button>
+      <button class="nav" data-page="catalogue">▤ Nursing Catalogue</button>
+      <button class="nav" data-page="materials">▧ My Study Materials</button>
+      <button class="nav" data-page="practice">✓ Practice Centre</button>
+      <button class="nav" data-page="shorts">▷ Nightingale Shorts</button>
+      <button class="nav" data-page="publications">▣ Publications</button>
+    </nav>
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 45px;
-}
+    <div class="sidebar-bottom">
+      <div class="profile">
+        <div class="avatar">AL</div>
+        <div>
+          <strong>Alex Learner</strong>
+          <small>Independent Student · Demo</small>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-.logo {
-  background: #168d8a;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 22px;
-}
+  <main>
+    <header class="topbar">
+      <button class="menu-button" id="menuButton">☰</button>
+      <div id="pageTitle">Overview</div>
+      <span class="demo">DEMO ENVIRONMENT</span>
+    </header>
 
-.brand h2 {
-  font-size: 15px;
-  margin: 0;
-}
+    <div class="content">
 
-.brand small {
-  color: #a8d9d5;
-}
+      <section id="dashboard" class="page active">
+        <p class="eyebrow">YOUR LEARNING SPACE</p>
+        <h1>Welcome to your learning centre.</h1>
+        <p class="muted">Build your knowledge one topic at a time.</p>
 
-.nav-label, .eyebrow {
-  font-size: 10px;
-  letter-spacing: 1.2px;
-  color: #7891aa;
-  font-weight: bold;
-}
+        <div class="stats">
+          <div class="stat">
+            <small>Topics explored</small>
+            <h2>12</h2>
+          </div>
+          <div class="stat">
+            <small>Practice questions</small>
+            <h2>86</h2>
+          </div>
+          <div class="stat">
+            <small>Study time</small>
+            <h2>8h 40m</h2>
+          </div>
+        </div>
 
-nav {
-  display: grid;
-  gap: 8px;
-}
+        <div class="panel">
+          <p class="eyebrow">CONTINUE LEARNING</p>
+          <h2>Heart Failure</h2>
+          <p class="muted">Medical-Surgical Nursing</p>
+          <p>Study the causes, clinical manifestations, management and nursing care of heart failure.</p>
+          <button class="primary" onclick="openTopic('Heart Failure')">Continue learning →</button>
+        </div>
 
-.nav {
-  border: 0;
-  background: transparent;
-  color: #d5e1ec;
-  text-align: left;
-  padding: 13px;
-  border-radius: 7px;
-  cursor: pointer;
-}
+        <h2>Explore your subjects</h2>
+        <div class="subject-grid">
+          <button class="subject" onclick="openSubject('Anatomy & Physiology')">Anatomy & Physiology</button>
+          <button class="subject" onclick="openSubject('Fundamentals of Nursing')">Fundamentals of Nursing</button>
+          <button class="subject" onclick="openSubject('Pharmacology')">Pharmacology</button>
+          <button class="subject" onclick="openSubject('Medical-Surgical Nursing')">Medical-Surgical Nursing</button>
+        </div>
+      </section>
 
-.nav.active, .nav:hover {
-  background: #24547e;
-  color: white;
-}
+      <section id="catalogue" class="page">
+        <p class="eyebrow">SHARED ACADEMIC LIBRARY</p>
+        <h1>Nursing Catalogue</h1>
+        <p class="muted">Explore subjects and topics at your learning level.</p>
 
-.sidebar-bottom {
-  margin-top: auto;
-}
+        <input id="search" placeholder="Search nursing subjects..." oninput="filterSubjects()">
 
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  padding-top: 20px;
-  border-top: 1px solid #345575;
-}
+        <div id="subjectList"></div>
+      </section>
 
-.profile small {
-  display: block;
-  color: #b2c3d2;
-  margin-top: 5px;
-}
+      <section id="topic" class="page">
+        <button class="back" onclick="showPage('catalogue')">← Back to catalogue</button>
+        <p class="eyebrow">ACADEMIC LEARNING</p>
+        <h1 id="topicName">Heart Failure</h1>
 
-.avatar {
-  background: #d9edf2;
-  color: #12345a;
-  padding: 11px;
-  border-radius: 50%;
-}
+        <div class="level-switch">
+          <button class="level active" onclick="setLevel('diploma',this)">Diploma</button>
+          <button class="level" onclick="setLevel('degree',this)">BScN</button>
+        </div>
 
-main {
-  flex: 1;
-  min-width: 0;
-}
+        <div class="panel">
+          <h2 id="levelTitle">Diploma Learning Level</h2>
+          <div id="topicContent"></div>
+        </div>
+      </section>
 
-.topbar {
-  background: white;
-  padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #e4eaf0;
-  align-items: center;
-  font-weight: bold;
-}
+      <section id="materials" class="page">
+        <p class="eyebrow">PRIVATE WORKSPACE</p>
+        <h1>My Study Materials</h1>
+        <p class="muted">Your personal learning documents belong in your private workspace.</p>
 
-.demo {
-  color: #a87931;
-  font-size: 10px;
-  background: #fff5e4;
-  padding: 8px;
-  border-radius: 5px;
-}
+        <div class="panel">
+          <h2>Upload learning material</h2>
+          <p class="muted">This is a demonstration only. Real file storage will be connected later.</p>
+          <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx">
+          <p id="fileMessage"></p>
+        </div>
+      </section>
 
-.content {
-  padding: 35px;
-  max-width: 1200px;
-}
+      <section id="practice" class="page">
+        <p class="eyebrow">LEARN BY APPLYING</p>
+        <h1>Practice Centre</h1>
+        <div class="subject-grid">
+          <button class="subject" onclick="demo('MCQ practice')">Multiple-choice questions</button>
+          <button class="subject" onclick="demo('Short-answer questions')">Short-answer questions</button>
+          <button class="subject" onclick="demo('Mock examinations')">Mock examinations</button>
+          <button class="subject" onclick="demo('Clinical scenarios')">Clinical scenarios</button>
+        </div>
+      </section>
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
+      <section id="shorts" class="page">
+        <p class="eyebrow">WATCH AND LEARN</p>
+        <h1>Nightingale Shorts</h1>
+        <div class="panel">
+          <h2>Educational videos</h2>
+          <p class="muted">Approved educational videos will appear here.</p>
+        </div>
+      </section>
 
-h2 {
-  font-size: 18px;
-}
+      <section id="publications" class="page">
+        <p class="eyebrow">READ AND RESEARCH</p>
+        <h1>Nightingale Publications</h1>
+        <div class="panel">
+          <h2>Academic publications</h2>
+          <p class="muted">Books, journals, research papers and articles will appear here.</p>
+        </div>
+      </section>
 
-.muted {
-  color: #718096;
-  line-height: 1.6;
-}
+    </div>
+  </main>
+</div>
 
-.stats, .subject-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin: 25px 0;
-}
-
-.stat, .panel {
-  background: white;
-  border: 1px solid #e3eaf1;
-  padding: 22px;
-  border-radius: 12px;
-  margin-bottom: 18px;
-}
-
-.stat small {
-  color: #718096;
-}
-
-.stat h2 {
-  font-size: 26px;
-  color: #2468a8;
-}
-
-.primary {
-  border: 0;
-  background: #2468a8;
-  color: white;
-  padding: 12px 17px;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.subject {
-  background: white;
-  border: 1px solid #dce5ed;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: left;
-  color: #18324f;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.subject:hover {
-  border-color: #168d8a;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-input {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #dce5ed;
-  border-radius: 7px;
-  margin: 15px 0;
-}
-
-.back {
-  background: none;
-  border: 0;
-  color: #2468a8;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.level-switch {
-  display: flex;
-  gap: 5px;
-  background: #e8eef4;
-  width: fit-content;
-  padding: 4px;
-  border-radius: 8px;
-  margin: 20px 0;
-}
-
-.level {
-  padding: 10px 20px;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.level.active {
-  background: white;
-  color: #2468a8;
-  font-weight: bold;
-}
-
-.menu-button {
-  display: none;
-}
-
-@media(max-width: 750px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: -260px;
-    z-index: 10;
-    transition: .2s;
-  }
-
-  .sidebar.open {
-    left: 0;
-  }
-
-  .menu-button {
-    display: block;
-    border: 0;
-    background: none;
-    font-size: 20px;
-  }
-
-  .content {
-    padding: 20px 15px;
-  }
-
-  .stats, .subject-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  h1 {
-    font-size: 23px;
-  }
-
-  .topbar {
-    padding: 15px;
-  }
-}
+<script src="app.js"></script>
+</body>
+</html>
