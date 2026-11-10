@@ -5,24 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nightingale's Hub | Learning Centre</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Style.Css">
 </head>
 <body>
 
 <div class="app">
-  <aside class="sidebar" id="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
     <div class="brand">
-      <div class="logo">✚</div>
+      <div class="logo" aria-hidden="true">✚</div>
       <div>
         <h2>Nightingale's Hub</h2>
         <small>Learning with Ease.</small>
       </div>
+      <button class="close-menu" id="closeMenuButton" type="button" aria-label="Close navigation menu">×</button>
     </div>
 
     <p class="nav-label">LEARNING WORKSPACE</p>
 
-    <nav>
-      <button class="nav active" data-page="dashboard">⌂ Overview</button>
+    <nav aria-label="Learning workspace">
+      <button class="nav active" data-page="dashboard" aria-current="page">⌂ Overview</button>
       <button class="nav" data-page="catalogue">▤ Nursing Catalogue</button>
       <button class="nav" data-page="materials">▧ My Study Materials</button>
       <button class="nav" data-page="practice">✓ Practice Centre</button>
@@ -43,8 +44,8 @@
 
   <main>
     <header class="topbar">
-      <button class="menu-button" id="menuButton">☰</button>
-      <div id="pageTitle">Overview</div>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+      <div id="pageTitle" tabindex="-1" aria-live="polite">Overview</div>
       <span class="demo">DEMO ENVIRONMENT</span>
     </header>
 
@@ -92,7 +93,8 @@
         <h1>Nursing Catalogue</h1>
         <p class="muted">Explore subjects and topics at your learning level.</p>
 
-        <input id="search" placeholder="Search nursing subjects..." oninput="filterSubjects()">
+        <label class="sr-only" for="search">Search nursing subjects</label>
+        <input id="search" type="search" placeholder="Search nursing subjects..." oninput="filterSubjects()">
 
         <div id="subjectList"></div>
       </section>
@@ -102,7 +104,7 @@
         <p class="eyebrow">ACADEMIC LEARNING</p>
         <h1 id="topicName">Heart Failure</h1>
 
-        <div class="level-switch">
+        <div class="level-switch" role="group" aria-label="Choose learning level">
           <button class="level active" onclick="setLevel('diploma',this)">Diploma</button>
           <button class="level" onclick="setLevel('degree',this)">BScN</button>
         </div>
@@ -121,8 +123,9 @@
         <div class="panel">
           <h2>Upload learning material</h2>
           <p class="muted">This is a demonstration only. Real file storage will be connected later.</p>
+          <label for="fileInput">Choose a study material file</label>
           <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx">
-          <p id="fileMessage"></p>
+          <p id="fileMessage" aria-live="polite"></p>
         </div>
       </section>
 
@@ -159,6 +162,7 @@
   </main>
 </div>
 
-<script src="app.js"></script>
+<button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
+<script src="App.js"></script>
 </body>
 </html>

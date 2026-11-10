@@ -1,0 +1,5 @@
+[functions.institutional-login]
+verify_jwt = false
+
+[functions.redeem-institutional-invitation]
+verify_jwt = false

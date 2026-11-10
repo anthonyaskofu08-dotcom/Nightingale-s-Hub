@@ -1,0 +1,12 @@
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+
+# Installed dependencies and generated build output
+node_modules/
+dist/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db

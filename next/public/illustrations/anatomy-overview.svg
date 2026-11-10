@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" fill="none">
+  <defs><linearGradient id="bg" x1="120" y1="20" x2="660" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#EAF5F7"/><stop offset="1" stop-color="#D9E9F3"/></linearGradient><linearGradient id="coat" x1="250" y1="87" x2="498" y2="385" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#DDEBF1"/></linearGradient></defs>
+  <rect width="720" height="420" rx="28" fill="url(#bg)"/><circle cx="575" cy="95" r="53" fill="#fff" fill-opacity=".52"/><circle cx="150" cy="324" r="78" fill="#fff" fill-opacity=".45"/>
+  <path d="M290 96c12-20 32-31 70-31s58 11 70 31l44 30 48 67-42 29-35-41 18 156H257l18-156-35 41-42-29 48-67 44-30Z" fill="url(#coat)" stroke="#ABC8D5" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M325 88c4 22 17 36 35 36s31-14 35-36" stroke="#C4D8E1" stroke-width="6" stroke-linecap="round"/>
+  <path d="M359 142c-22 17-31 38-27 67 3 19 12 29 27 33 16-4 25-14 28-33 4-29-5-50-28-67Z" fill="#51B9B2" fill-opacity=".85" stroke="#168D8A" stroke-width="4"/>
+  <path d="M353 149c-22-11-39 2-47 22-9 24-5 51 7 67 9 13 22 15 37 5 8-6 12-18 12-34v-49c0-6-3-10-9-11Z" fill="#79AFC6" fill-opacity=".82" stroke="#477D99" stroke-width="4"/>
+  <path d="M366 149c22-11 39 2 47 22 9 24 5 51-7 67-9 13-22 15-37 5-8-6-12-18-12-34v-49c0-6 3-10 9-11Z" fill="#79AFC6" fill-opacity=".82" stroke="#477D99" stroke-width="4"/>
+  <path d="M358 124v25m-24 13 24 18 24-18" stroke="#168D8A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="475" cy="112" r="8" fill="#168D8A"/><circle cx="498" cy="112" r="5" fill="#2468A8"/><circle cx="522" cy="112" r="3" fill="#83C5C2"/>
+</svg>

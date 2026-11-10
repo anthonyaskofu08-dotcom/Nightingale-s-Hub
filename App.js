@@ -60,13 +60,17 @@ function showPage(page) {
 
   document.querySelectorAll(".nav").forEach(b => {
     b.classList.remove("active");
+    b.removeAttribute("aria-current");
   });
 
   const selected = document.querySelector(
     `.nav[data-page="${page}"]`
   );
 
-  if (selected) selected.classList.add("active");
+  if (selected) {
+    selected.classList.add("active");
+    selected.setAttribute("aria-current", "page");
+  }
 
   const titles = {
     dashboard: "Overview",
@@ -81,7 +85,8 @@ function showPage(page) {
   document.getElementById("pageTitle").textContent =
     titles[page] || "Learning Centre";
 
-  document.getElementById("sidebar").classList.remove("open");
+  closeMenu(false);
+  document.getElementById("pageTitle").focus();
 }
 
 document.querySelectorAll(".nav").forEach(button => {
@@ -90,8 +95,77 @@ document.querySelectorAll(".nav").forEach(button => {
   });
 });
 
-document.getElementById("menuButton").addEventListener("click", () => {
-  document.getElementById("sidebar").classList.toggle("open");
+const sidebar = document.getElementById("sidebar");
+const main = document.querySelector("main");
+const menuButton = document.getElementById("menuButton");
+const closeMenuButton = document.getElementById("closeMenuButton");
+const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+function openMenu() {
+  sidebar.classList.add("open");
+  sidebar.inert = false;
+  sidebar.setAttribute("aria-hidden", "false");
+  main.inert = true;
+  sidebarBackdrop.classList.add("active");
+  menuButton.setAttribute("aria-expanded", "true");
+  document.body.classList.add("menu-open");
+  closeMenuButton.focus();
+}
+
+function closeMenu(restoreFocus = false) {
+  sidebar.classList.remove("open");
+  sidebarBackdrop.classList.remove("active");
+  menuButton.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+
+  const isMobile = window.matchMedia("(max-width: 750px)").matches;
+  sidebar.inert = isMobile;
+  sidebar.setAttribute("aria-hidden", String(isMobile));
+  main.inert = false;
+
+  if (restoreFocus && isMobile) {
+    menuButton.focus();
+  }
+}
+
+menuButton.addEventListener("click", () => {
+  if (menuButton.getAttribute("aria-expanded") === "true") {
+    closeMenu(true);
+  } else {
+    openMenu();
+  }
+});
+
+closeMenuButton.addEventListener("click", () => closeMenu(true));
+sidebarBackdrop.addEventListener("click", () => closeMenu(true));
+
+document.addEventListener("keydown", event => {
+  const menuIsOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+  if (event.key === "Escape" && menuIsOpen) {
+    closeMenu(true);
+    return;
+  }
+
+  if (event.key === "Tab" && menuIsOpen) {
+    const focusable = sidebar.querySelectorAll("button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex='-1'])");
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (!window.matchMedia("(max-width: 750px)").matches) {
+    closeMenu(false);
+  }
 });
 
 function renderSubjects(list = subjects) {
@@ -183,12 +257,16 @@ function setLevel(level, button) {
 
   document.querySelectorAll(".level").forEach(b => {
     b.classList.remove("active");
+    b.setAttribute("aria-pressed", "false");
   });
 
   if (button) {
     button.classList.add("active");
+    button.setAttribute("aria-pressed", "true");
   } else {
-    document.querySelectorAll(".level")[0].classList.add("active");
+    const defaultButton = document.querySelectorAll(".level")[0];
+    defaultButton.classList.add("active");
+    defaultButton.setAttribute("aria-pressed", "true");
   }
 }
 
@@ -207,3 +285,4 @@ document.getElementById("fileInput").addEventListener("change", e => {
 
 renderSubjects();
 setLevel("diploma");
+closeMenu(false);
