@@ -53,7 +53,7 @@ Original root files `App.js`, `Index.Html` and `Style.Css` were preserved and no
 ## 7. Git and GitHub
 
 - Initial backup commit `1f82d3e` was verified locally and at `origin/nightingales-hub-improvements` before work.
-- Follow-up assignment commit and push confirmation will be recorded here after completion.
+- Assignment commit `ba9ca8a` (`Add complete platform skeleton and work logbook`) was pushed successfully to `origin/nightingales-hub-improvements` as a fast-forward from `1f82d3e`; no force-push was used.
 - `.env.local`, `node_modules` and `dist` must remain excluded. Service-role secrets must only exist in provider-managed server configuration.
 
 ## 8. Recommended next actions
