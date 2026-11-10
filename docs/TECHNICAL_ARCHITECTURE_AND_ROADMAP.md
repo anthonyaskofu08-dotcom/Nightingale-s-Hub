@@ -1,8 +1,8 @@
 # Nightingale's Hub — Technical Architecture and Roadmap
 
-**Implementation status update — 9 November 2026:** The owner has since issued a master implementation authorization. Stage 1 identity and institutional-record artifacts are now in `docs/STAGE_1_IMPLEMENTATION.md` and `next/`. This authorization supersedes the earlier architecture-only stop condition for code and documentation work. Applying migrations to the live Supabase project, changing its settings, sending real invitations, committing, pushing and deploying remain prohibited without separate approval.
+**Implementation status update — 10 November 2026:** The owner authorized the complete development assignment, frontend skeletons, documentation, tests and commits/pushes to `nightingales-hub-improvements`. The initial backup `1f82d3e` is on that remote branch. Stage 1 implementation remains in `docs/STAGE_1_IMPLEMENTATION.md` and `next/`. Production deployment, production data mutation and production migration application remain outside scope.
 
-**Status:** React + TypeScript + Vite is approved as the frontend technology direction. The gradual migration plan below is documentation only; no implementation is authorized by this update.
+**Status:** React + TypeScript + Vite is approved and implemented as the active frontend shell. New platform areas are marked as skeletons until their backend contracts, permissions and tests are complete.
 **Branch reviewed:** `nightingales-hub-improvements`
 **Architecture boundary:** A future, dedicated Nightingale's Hub Supabase project. ScratchKE is out of scope and must remain separate.
 
@@ -18,13 +18,13 @@ The approved target is a modular web application with:
 - **Security:** deny by default; database policies and server functions enforce authorization. Frontend role checks are only for user experience.
 - **Delivery:** establish and review the architecture before connecting services; deliver institutional identity and access first, then learning resources, assessment, academic support, and commercial expansion.
 
-No migration, Supabase connection, package installation, code change, deployment or push was performed for this review.
+At the time of the initial review, no migration, Supabase connection, package installation, code change, deployment or push had been performed. Current evidence is maintained in the implementation status and work logbook.
 
 ## 2. Repository audit and product gap
 
 ### What exists
 
-The repository currently has only `Index.Html`, `Style.Css` and `App.js` (plus Git metadata). No `docs` directory, `AGENTS.md`, package manifest, lockfile, build configuration, automated test setup, asset directory, environment template, backend functions or database migrations existed at the time of inspection.
+At the initial audit, the repository had only `Index.Html`, `Style.Css` and `App.js` (plus Git metadata). The React app, documents, assets, tests, environment template, backend functions and migrations were added later.
 
 The current static UI contains:
 
@@ -40,9 +40,9 @@ The existing UI is a prototype, and the previous Phase 1 branch edits improve it
 
 ### What is incomplete or absent
 
-There is no real user account or session, role assignment, institution onboarding, code-based enrolment, backend/API connection, Supabase setup, database, RLS, storage, content permissions, document processing, real learning-resource library, question bank, assessment engine, clinical case engine, pharmacology or anatomy data, progress persistence, AI provider, assignment workspace, publications catalogue, subscription or payment flow, audit system, production configuration, or operational monitoring.
+The current repository has Stage 1 identity, onboarding, institution administration and official-record implementation in source, plus a React/Vite shell and local-only learning demonstrations. The remaining product gaps include a governed persistent learning library, processed uploads, question and assessment systems, clinical content, progress persistence, AI services, assignment workflows, publication governance, finance, cross-module analytics, production configuration and operational monitoring.
 
-Therefore the frontend is **not connected to a backend**. Existing copy clearly marks file storage and practice as demos; the sample statistics and topic outlines should not be treated as real student data or authoritative clinical learning content.
+The frontend can connect to the configured Supabase project for Stage 1 and selected workspace screens. Most learning content, progress, library, assessment and publishing screens remain demonstrations or skeletons; sample statistics and topic outlines are not real student data or authoritative clinical learning content.
 
 ### Immediate technical implications
 
@@ -52,7 +52,7 @@ Therefore the frontend is **not connected to a backend**. Existing copy clearly 
 4. Create a separate Supabase project only after owner approval and account/project ownership are settled.
 5. No real personal, institutional, clinical or payment data should be entered into the current demo.
 
-The frontend decision does not authorize changing backend integrations, authentication, database configuration or credentials. Package installation, source-code changes, migrations, Supabase connection, commits, pushes and deployment require separate approval.
+The master development assignment authorizes repository source changes, documentation, tests, safe migration preparation and commits/pushes on the named branch. It does not authorize production deployment, production data changes or production migration application.
 
 ## 3. Proposed system architecture
 
@@ -501,4 +501,15 @@ The phases below refine the blueprint's six phases. Each phase has a review gate
 
 ## 16. Approval boundary
 
-React + TypeScript + Vite is the approved frontend direction, and gradual migration is required. This documentation update does not authorize framework/package installation or application-source changes. It also does not authorize changes to backend integrations, authentication, database configuration or credentials; migrations; Supabase project creation or connection; AI/payment provider selection; deployment; or data collection. Obtain explicit owner approval for the relevant implementation plan before each such action. Continue to work only on `nightingales-hub-improvements`; never commit, push or deploy without separate approval.
+The owner authorizes repository implementation, documentation, tests and commits/pushes on `nightingales-hub-improvements`. Production deployment, production data mutation and production migration application are not authorized. Migration execution must remain within the approved staging boundary and is not claimed by this repository assignment.
+
+## 17. Assignment index
+
+- Product vision: `docs/NIGHTINGALES_HUB_MASTER_BLUEPRINT.md`
+- Work queue: `docs/MASTER_OUTSTANDING_WORK_LOGBOOK.md`
+- Screens and navigation: `docs/COMPLETE_SCREEN_AND_NAVIGATION_INVENTORY.md`
+- Roles and permissions: `docs/USER_ROLES_AND_PERMISSION_MATRIX.md`
+- Database and storage: `docs/DATABASE_AND_STORAGE_ARCHITECTURE.md`
+- Dependencies: `docs/MODULE_DEPENDENCY_MAP.md`
+- Testing status: `docs/IMPLEMENTATION_AND_TESTING_STATUS.md`
+- Session report: `docs/CODEX_HANDOVER_REPORT.md`

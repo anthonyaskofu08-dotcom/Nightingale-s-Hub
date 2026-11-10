@@ -1,0 +1,8 @@
+.module-status{border-color:#cfe3e7;background:linear-gradient(120deg,#f4fafb,#fff)}
+.module-status p{margin:12px 0 0;color:#536d80;font-size:13px;line-height:1.7}
+.module-workflow{margin:14px 0}
+.module-workflow ol{margin:14px 0 0;padding-left:22px;color:#526b7f;font-size:13px;line-height:1.8}
+.module-workflow li{padding:3px 0 3px 4px}
+.module-workflow .empty-state{min-height:165px;margin-top:13px}
+.module-workspace .callout-card h2{margin-top:0}
+@media(max-width:620px){.module-workflow{grid-template-columns:1fr}.module-status{padding:16px}}

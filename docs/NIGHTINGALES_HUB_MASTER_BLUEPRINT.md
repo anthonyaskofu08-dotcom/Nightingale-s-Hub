@@ -1,6 +1,6 @@
 # Nightingale's Hub — Master Product Blueprint and Technical Development Specification
 
-**Implementation status update — 9 November 2026:** The owner has issued a master implementation authorization after the initial architecture review. See `docs/STAGE_1_IMPLEMENTATION.md` for current identity/account and institutional-record implementation. This supersedes the earlier instruction to stop after architecture review for authorized code work. Live Supabase migration/configuration changes, real invitations, commits, pushes and deployment still require separate approval.
+**Implementation status update — 10 November 2026:** The owner authorized the complete master development assignment, frontend skeletons, documentation, tests and commits/pushes to `nightingales-hub-improvements`. The baseline backup `1f82d3e` is on that remote branch. See `docs/MASTER_OUTSTANDING_WORK_LOGBOOK.md` for current status. Production deployment, production data mutation and production migration application remain outside scope.
 
 **Working name:** Nightingale's Hub
 **Tagline:** Learning with Ease.
@@ -47,7 +47,7 @@ Preserve the existing working frontend and improve it progressively. Do not disc
 
 The approved frontend technology direction is **React + TypeScript + Vite**. Migrate gradually rather than rebuilding the application all at once. Preserve the existing visual design, Nightingale's Hub branding, pages, responsive behaviour and all currently working functionality. Do not remove or break existing features during migration. Keep the existing application usable throughout the transition, and migrate and test functionality in manageable stages.
 
-The technology decision does not authorize changes to backend integrations, authentication, database configuration or credentials. Package installation, application-source changes, database migrations, Supabase connections, commits, pushes and deployment require separate approval for the relevant implementation work.
+The frontend technology decision alone did not authorize other implementation work. The current master development assignment separately authorizes repository code, documentation, tests, migration preparation and commits/pushes on the approved branch; production deployment and production data or migration changes remain excluded.
 
 ## 3. User Types and Account Roles
 
@@ -373,10 +373,10 @@ Build the platform in dependency order. The phases may be refined after the arch
 18. Test changes and report which checks were actually performed.
 19. Never claim a feature works unless it has been implemented and tested.
 
-## 25. Immediate Instruction — Architecture Review Only
+## 25. Historical architecture-review instruction (superseded)
 
 For the initial architecture review, do not start coding application features. First read and understand this specification; inspect the repository and branch; compare the implementation against the product vision; identify existing, incomplete and missing functionality; propose system and frontend architecture; design the Supabase schema, relationships, constraints, roles, permissions, RLS and backend security; explain storage/document processing, AI, and payments/subscriptions; identify dependencies; propose an ordered roadmap; and list unresolved owner decisions.
 
 Save this specification as `docs/NIGHTINGALES_HUB_MASTER_BLUEPRINT.md` and the separate technical architecture and implementation plan as `docs/TECHNICAL_ARCHITECTURE_AND_ROADMAP.md`.
 
-Documentation files may be created or updated on `nightingales-hub-improvements` only. Do not modify application code, `main`, migrations, authentication, external packages, Supabase projects, GitHub, or deployment during this architecture-review task. Stop after reporting the architecture and wait for owner review and approval before application or backend changes.
+The owner authorizes repository implementation and GitHub commits/pushes on `nightingales-hub-improvements`. Preserve the original static demo and working React Stage 1 flows. Do not deploy to production, mutate production data or apply migrations to production. Keep service-role credentials in the provider secret store and never in frontend files or Git. The earlier architecture-only stop instruction applied to the initial review and is superseded by the current master development assignment.

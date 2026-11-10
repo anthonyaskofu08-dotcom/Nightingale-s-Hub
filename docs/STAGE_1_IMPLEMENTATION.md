@@ -1,6 +1,8 @@
 # Stage 1 implementation: identity and institutional records
 
-**Status:** implementation artifacts prepared; not connected to or applied to the live Supabase project. No deployment, commit or push was performed.
+**Status:** implementation artifacts are prepared in the repository. The staging project was not connected to or modified during this assignment; no migrations were applied or functions deployed. Production systems remain out of scope.
+
+**Current status ledger:** see `docs/IMPLEMENTATION_AND_TESTING_STATUS.md` for implemented, integrated, locally tested and Supabase-unverified work. This document preserves Stage 1 procedures; the master development authorization supersedes its original no-commit/no-push instruction.
 
 ## Implemented in `next/`
 
